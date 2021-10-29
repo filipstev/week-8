@@ -1,0 +1,412 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+  background: white;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f7f7f7;
+}
+
+main {
+  background-color: white;
+}
+
+.player {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  font-size: 0;
+  overflow: hidden;
+}
+
+.player video {
+  max-height: 80vh;
+}
+
+.player:fullscreen video {
+  max-height: 100vh;
+}
+
+#video {
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  transition: all 0.3s;
+  background: rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  padding-bottom: 0.3rem;
+}
+
+.video-control {
+  display: flex;
+  align-items: center;
+}
+
+::-webkit-media-controls {
+  display: none !important;
+}
+
+.playback {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.playback button {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 0.2rem 0.75rem;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.playback button:hover {
+  cursor: pointer;
+}
+
+.playback-list {
+  display: none;
+  position: absolute;
+  top: -210px;
+  left: -10px;
+  font-size: 18px;
+  border-radius: 5px;
+  list-style: none;
+
+  padding-left: 0;
+}
+
+.playback-list li {
+  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  color: white;
+  padding: 0.3rem 1rem 0.3rem 1rem;
+  background-color: #191919;
+}
+
+.playback-list li:hover {
+  filter: brightness(150%);
+  cursor: pointer;
+}
+
+.playback-list li:first-child {
+  padding-top: 0.3rem;
+  padding-bottom: 0.4rem;
+  border-radius: 5px 5px 0 0;
+}
+
+.playback-list li:last-child {
+  border-radius: 0 0 5px 5px;
+  padding-bottom: 0.4rem;
+}
+
+.visible {
+  display: inline !important;
+}
+
+.video-progress {
+  position: relative;
+  height: 8.4px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+progress {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.seek {
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+  margin: 0;
+  width: 100%;
+}
+
+.seek:hover + .seek-tooltip {
+  display: block;
+}
+
+.seek-tooltip {
+  display: none;
+  position: absolute;
+  top: -35px;
+  font-size: 14px;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #191919;
+}
+
+.fullscreen i {
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+.mute {
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.volume {
+  margin: 0.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.volume-control {
+  opacity: 0;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.mute:hover + .volume-control {
+  opacity: 1;
+  width: 100%;
+}
+
+.mute i {
+  font-size: 20px;
+  margin-right: 0.5rem;
+}
+
+.volume-control:hover {
+  opacity: 1;
+  width: 100%;
+}
+
+.left {
+  display: flex;
+  flex: 1;
+}
+
+.timestamp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  margin: auto;
+  flex: 1;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin: 0 0.5rem;
+  justify-content: flex-end;
+}
+
+.play {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  margin: 0 1rem;
+}
+
+progress {
+  margin-bottom: 0 0;
+  z-index: 1;
+  height: 12px;
+  border-radius: 0;
+  color: red;
+  background-color: red;
+  outline: none !important;
+}
+.video-progress input[type='range'] {
+  -webkit-appearance: none;
+  background-color: #f5f6f8;
+  height: 12px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 0;
+  outline: none !important;
+}
+.video-progress input[type='range']::-moz-focus-outer {
+  border: 0;
+}
+input[type='range']:hover {
+  outline: none;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+progress::-webkit-progress-value {
+  background: #ff0000;
+}
+
+.volume input[type='range'] {
+  margin: auto;
+  -webkit-appearance: none;
+  position: relative;
+  overflow: hidden;
+  height: 13px;
+  border-radius: 0;
+  cursor: grab;
+}
+
+.grabbing {
+  cursor: grabbing !important;
+}
+
+.volume ::-webkit-slider-runnable-track {
+  background: #ddd;
+}
+
+.volume ::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 0;
+  height: 40px;
+  background: #fff;
+  box-shadow: -100vw 0 0 100vw #ff0000;
+}
+
+.volume ::-moz-range-track {
+  height: 40px;
+  background: #ddd;
+}
+
+.volume ::-moz-range-thumb {
+  background: #fff;
+  height: 40px;
+  width: 20px;
+  border: 3px solid #999;
+  border-radius: 0 !important;
+  box-shadow: -100vw 0 0 100vw #ff0000;
+  box-sizing: border-box;
+}
+
+.volume ::-ms-fill-lower {
+  background: #ff0000;
+}
+
+.volume ::-ms-thumb {
+  background: #fff;
+  border: 2px solid #999;
+  height: 40px;
+  width: 20px;
+  box-sizing: border-box;
+}
+
+.volume ::-ms-ticks-after {
+  display: none;
+}
+
+.volume ::-ms-ticks-before {
+  display: none;
+}
+
+.volume ::-ms-track {
+  background: #ddd;
+  color: transparent;
+  height: 40px;
+  border: none;
+}
+
+.volume ::-ms-tooltip {
+  display: none;
+}
+
+.pause-play {
+  opacity: 0;
+  font-size: 100px;
+  position: absolute;
+  top: 45%;
+  left: 47.5%;
+  transition: opacity 0.3s;
+  color: #191919;
+  cursor: pointer;
+}
+
+.opacity {
+  opacity: 0.8;
+  z-index: 2;
+}
+
+@media only screen and (max-width: 780px) {
+  .volume-control {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .volume-control {
+    display: none !important;
+  }
+
+  .volume .visible {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .timestamp {
+    font-size: 12px;
+  }
+  .playback ul {
+    display: none !important;
+  }
+
+  i {
+    font-size: 14px;
+  }
+
+  .playback button {
+    padding: 0.2rem 0.5rem;
+    font-size: 14px;
+  }
+  .pause-play {
+    display: none;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 825px) and (orientation: landscape) {
+  .player {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .player video {
+    max-height: 100vh;
+    object-fit: contain;
+  }
+
+  .pause-play {
+    display: none;
+  }
+
+  .volume-control {
+    display: none !important;
+  }
+
+  .playback ul {
+    display: none !important;
+  }
+}

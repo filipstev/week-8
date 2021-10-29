@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/d3207104f7.js" crossorigin="anonymous"></script>
+    <title>Video Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+<body>
+ <main>
+   <div class="pause-play">
+    <i class="far fa-play-circle"></i>
+   </div>
+    <div class="player">
+      <video  
+      id="video"
+      poster="img/poster.png" 
+      src="videos/One day 1 minute nature cinematic video_ujjalpaul.mp4">
+    </video>
+    <div class="controls">
+      <div class="video-progress">
+        <progress id="progress-bar" value="0" min="0"></progress>
+        <input class="seek" id="seek" value="0" min="0" type="range" step="1">
+        <div class="seek-tooltip" id="seek-tooltip">00:00</div>
+      </div>
+      <div class="video-control">
+        <div class="left">
+          <div class="btn play" id="play"><i class="fas fa-play"></i></div>
+          
+          <div class="volume">
+            <div id="mute" class="mute"><i class="fas fa-volume-up"></i></div>
+            <input type="range" class="volume-control" id="volume-control"/>
+          </div>
+        </div>
+        <span class="timestamp" id="timestamp">00:00</span>
+        <div class="right">
+          
+          <div class="playback">
+            <button id="playback-speed">1.0x</button>
+            <ul class="playback-list">
+              <li>0.5x</li>
+              <li>0.75x</li>
+              <li>1.0x</li>
+              <li>1.5x</li>
+              <li>2.0x</li>
+            </ul>
+          </div>
+          <div class="btn fullscreen" id="fullscreen">
+            <i class="fas fa-expand-arrows-alt"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
+
